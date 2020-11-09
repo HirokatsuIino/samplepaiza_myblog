@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
       @articles = Article.where('name LIKE ?', "%#{params[:name_key]}%")
     else
       @articles = Article.all
-      end
+    end
   end
 
   # GET /articles/1
