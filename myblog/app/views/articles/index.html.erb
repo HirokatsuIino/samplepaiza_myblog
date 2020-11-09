@@ -7,6 +7,7 @@
     <tr>
       <th>Content</th>
       <th>Name</th>
+      <th>Feeling</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= article.content %></td>
         <td><%= article.name %></td>
+        <td><%= article.feeling %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
         <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
