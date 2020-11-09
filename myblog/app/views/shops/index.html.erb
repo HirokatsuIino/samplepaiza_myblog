@@ -8,7 +8,7 @@
   <%= submit_tag('Search') %> <%= link_to 'Clear', shops_path %>
 <% end %>
 
-<table>
+<table class='table table-striped table-hover'>
   <thead>
     <tr>
       <th>Category Id</th>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Shop', new_shop_path %>
+<%= link_to 'New Shop', new_shop_path, class: 'btn btn-primary' %> | <%= link_to 'Show category list', categories_path %>
