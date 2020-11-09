@@ -26,6 +26,11 @@
     <%= form.text_field :feeling %>
   </div>
 
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Shop.all.map{|o| [o.name, o.id]} %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
