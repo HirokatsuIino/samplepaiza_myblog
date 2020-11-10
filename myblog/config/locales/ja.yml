@@ -29,9 +29,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  shops: 'Shops'
-  category: 'Category'
-  name: 'Name'
-  address: 'Address'
+ja:
+  hello: "世界の皆さん、こんにちは"
+  shops: 'お店リスト'
+  category: 'カテゴリ'
+  name: '店名'
+  address: '住所'
+
+  activerecord:
+    models:
+      shop: お店
+
+    attributes:
+      shop:
+        category_id: カテゴリ
+        name: 店名
+        address: 住所
+
