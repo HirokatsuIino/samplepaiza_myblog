@@ -14,6 +14,7 @@
     <tr>
       <th>Content</th>
       <th>Name</th>
+      <th>User_id</th>
       <th>Feeling</th>
       <th colspan="2"></th>
     </tr>
@@ -24,6 +25,7 @@
       <tr>
         <td><%= article.content %></td>
         <td><%= article.name %></td>
+        <td><%= article.user_id %></td>
         <td><%= article.feeling %></td>
         <td><%= link_to 'Show', article %></td>
         <td><%= link_to 'Edit', edit_article_path(article) %></td>
