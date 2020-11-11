@@ -46,25 +46,38 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+    if @article.user_id == current_user.id
+      respond_to do |format|
+        if @article.update(article_params)
+          format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+          format.json { render :show, status: :ok, location: @article }
+        else
+          format.html { render :edit }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to @article, notice: "You don't have permission."
     end
+
+
+
   end
 
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    if @article.user_id == current_user.id
+      @article.destroy
+      msg = "Article was successfully destroyed."
+    else
+      msg = "You don't have permission."
+    end
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: msg }
       format.json { head :no_content }
     end
+
   end
 
   private
