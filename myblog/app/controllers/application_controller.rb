@@ -10,11 +10,13 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     { locale: I18n.locale }.merge options
   end
+
+  protected_methods
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
+
 end
 
-protected_methods
-
-def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-end
