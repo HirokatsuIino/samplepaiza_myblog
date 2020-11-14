@@ -1,24 +1,29 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<p>
-  <strong>Name:</strong>
-  <%= @article.user.name %>
-</p>
+<!--<p>-->
+<!--  <strong>Name:</strong>-->
+  <%#= @article.user.name %>
+<!--</p>-->
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+<!--<p>-->
+<!--  <strong>Content:</strong>-->
+  <%#= @article.content %>
+<!--</p>-->
 
-<p>
-  <strong>Name:</strong>
-  <%= @article.name %>
-</p>
+<!--<p>-->
+<!--  <strong>Name:</strong>-->
+  <%#= @article.name %>
+<!--</p>-->
 
-<p>
-  <strong>Feeling:</strong>
-  <%= @article.feeling %>
-</p>
+<!--<p>-->
+<!--  <strong>Feeling:</strong>-->
+  <%#= @article.feeling %>
+<!--</p>-->
+
+
+
+<%= javascript_pack_tag 'ArticleDetailPage_vue' %>
+<%= stylesheet_pack_tag 'ArticleDetailPage_vue' %>
 
 <% if user_signed_in? && article.user_id == current_user.id %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
