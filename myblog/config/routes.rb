@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :diaries
   resources :articles
 
+
   namespace :api, {format: 'json'} do
     namespace :v1 do
-      resources :articles, only: [:index]
+      resources :articles, only: [:index, :show]
+      resources :product, only: [:index, :show]
     end
   end
 
