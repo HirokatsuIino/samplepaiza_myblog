@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin: 0 0 0 210px">
         <router-view></router-view>
     </div>
 </template>
@@ -10,6 +10,9 @@
 
     import ArticleIndexPage from 'ArticleIndexPage.vue'
     import ArticleDetailPage from 'ArticleDetailPage.vue'
+    import ArticlePageCreate from 'ArticlePageCreate.vue'
+    import ClientIndexPage from 'ClientIndexPage.vue'
+
     import NotFound from 'NotFound.vue'
 
     const router = new VueRouter({
@@ -25,6 +28,18 @@
             // { path: '/articles/:id(\\d+)',  // :id は数値のみに制限する
                 name: ArticleDetailPage,
                 component: ArticleDetailPage  },
+            { path: '/create',
+                name: ArticlePageCreate,
+                component: ArticlePageCreate  },
+
+            { path: '/clients',
+                name: ClientIndexPage,
+                component: ClientIndexPage  },
+            { path: '/clients/:id',  // :id は数値のみに制限する
+                name: ArticleDetailPage,
+                component: ArticleDetailPage  },
+
+
 
         ]
     })
