@@ -1,0 +1,32 @@
+<%= form_with(model: client_unit_price, local: true) do |form| %>
+  <% if client_unit_price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client_unit_price.errors.count, "error") %> prohibited this client_unit_price from being saved:</h2>
+
+      <ul>
+        <% client_unit_price.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.number_field :client_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_price_id %>
+    <%= form.number_field :unit_price_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :begin_at %>
+    <%= form.date_select :begin_at %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

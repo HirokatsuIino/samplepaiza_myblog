@@ -1,0 +1,2 @@
+module ClientPublishingSettingsHelper
+end

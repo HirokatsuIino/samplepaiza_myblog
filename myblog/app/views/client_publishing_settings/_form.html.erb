@@ -1,0 +1,27 @@
+<%= form_with(model: client_publishing_setting, local: true) do |form| %>
+  <% if client_publishing_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client_publishing_setting.errors.count, "error") %> prohibited this client_publishing_setting from being saved:</h2>
+
+      <ul>
+        <% client_publishing_setting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.number_field :client_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

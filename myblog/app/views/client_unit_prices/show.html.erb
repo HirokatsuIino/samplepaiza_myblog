@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @client_unit_price.client_id %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @client_unit_price.unit_price_id %>
+</p>
+
+<p>
+  <strong>Begin at:</strong>
+  <%= @client_unit_price.begin_at %>
+</p>
+
+<%= link_to 'Edit', edit_client_unit_price_path(@client_unit_price) %> |
+<%= link_to 'Back', client_unit_prices_path %>

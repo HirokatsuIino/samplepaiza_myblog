@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @client_publishing_setting.client_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @client_publishing_setting.comment %>
+</p>
+
+<%= link_to 'Edit', edit_client_publishing_setting_path(@client_publishing_setting) %> |
+<%= link_to 'Back', client_publishing_settings_path %>

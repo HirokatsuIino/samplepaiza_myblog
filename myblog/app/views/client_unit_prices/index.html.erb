@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Client Unit Prices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Unit price</th>
+      <th>Begin at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_unit_prices.each do |client_unit_price| %>
+      <tr>
+        <td><%= client_unit_price.client_id %></td>
+        <td><%= client_unit_price.unit_price_id %></td>
+        <td><%= client_unit_price.begin_at %></td>
+        <td><%= link_to 'Show', client_unit_price %></td>
+        <td><%= link_to 'Edit', edit_client_unit_price_path(client_unit_price) %></td>
+        <td><%= link_to 'Destroy', client_unit_price, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client Unit Price', new_client_unit_price_path %>

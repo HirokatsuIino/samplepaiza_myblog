@@ -1,23 +1,24 @@
-class ArticlesController < ApplicationController
+class Api::V1::ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
-  protect_from_forgery :except => [:create]
 
   # GET /articles
   # GET /articles.json
   def index
     if params[:name_key]
-      @articles = Article.where('content LIKE ?', "%#{params[:name_key]}%")
+      @articles = Article.where('name LIKE ?', "%#{params[:name_key]}%")
     else
-      @articles = Article.all
+      # @articles = Article.all
+      @articles = Article.includes(:user)
     end
+    render json: @articles
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
-    # @article
+    # @article = Article.find(params[:id])
+    render json: @article
   end
 
   # GET /articles/new
@@ -89,9 +90,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      # @article = Article.all
       @article = Article.find(params[:id])
-      puts @article
     end
 
     # Only allow a list of trusted parameters through.

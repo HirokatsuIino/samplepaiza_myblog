@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Client Publishing Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @client_publishing_settings.each do |client_publishing_setting| %>
+      <tr>
+        <td><%= client_publishing_setting.client_id %></td>
+        <td><%= client_publishing_setting.comment %></td>
+        <td><%= link_to 'Show', client_publishing_setting %></td>
+        <td><%= link_to 'Edit', edit_client_publishing_setting_path(client_publishing_setting) %></td>
+        <td><%= link_to 'Destroy', client_publishing_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Client Publishing Setting', new_client_publishing_setting_path %>

@@ -1,0 +1,1 @@
+json.partial! "client_publishing_settings/client_publishing_setting", client_publishing_setting: @client_publishing_setting
