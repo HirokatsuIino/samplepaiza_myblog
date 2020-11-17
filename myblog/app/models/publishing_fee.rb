@@ -1,0 +1,2 @@
+class PublishingFee < ApplicationRecord
+end

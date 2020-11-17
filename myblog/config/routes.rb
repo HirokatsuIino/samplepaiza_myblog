@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :publishing_fees
   resources :client_unit_prices
   resources :client_publishing_settings
   devise_for :users

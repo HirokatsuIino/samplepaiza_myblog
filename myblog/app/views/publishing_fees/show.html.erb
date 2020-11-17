@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @publishing_fee.client_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @publishing_fee.value %>
+</p>
+
+<%= link_to 'Edit', edit_publishing_fee_path(@publishing_fee) %> |
+<%= link_to 'Back', publishing_fees_path %>
