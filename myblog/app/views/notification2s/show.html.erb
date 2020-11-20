@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @notification2.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @notification2.body %>
+</p>
+
+<p>
+  <strong>Begin at:</strong>
+  <%= @notification2.begin_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @notification2.end_at %>
+</p>
+
+<%= link_to 'Edit', edit_notification2_path(@notification2) %> |
+<%= link_to 'Back', notification2s_path %>
