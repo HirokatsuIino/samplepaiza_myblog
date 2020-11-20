@@ -5,6 +5,7 @@ class Notification2sController < ApplicationController
   # GET /notification2s.json
   def index
     @notification2s = Notification2.all
+    @now_date = Time.now
   end
 
   # GET /notification2s/1
