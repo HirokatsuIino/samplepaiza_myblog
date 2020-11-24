@@ -3,7 +3,7 @@ require 'csv'
 csv = CSV.read('db/fixtures/development/unit_prices.csv', encoding: 'Shift_JIS:UTF-8')
 csv.each do |line|
   # id = line[0]
-  relation_type_id = line[1]
+  # relation_type_id = line[1]
   value = line[2]
   billing_code = line[3]
   refund_code = line[4]
@@ -15,7 +15,7 @@ csv.each do |line|
 
   UnitPrice.seed_once(:id) do |s|
     # s.id = id
-    s.relation_type_id = relation_type_id
+    # s.relation_type_id = relation_type_id
     s.value = value
     s.billing_code = billing_code
     s.refund_code = refund_code
