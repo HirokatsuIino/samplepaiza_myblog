@@ -9,7 +9,7 @@ csv.each do |line|
   end_at = line[4]
 
 
-  Notification2.seed_once(:id) do |s|
+  Notification.seed_once(:id) do |s|
     # s.id = id
     s.title = title
     s.body = body
