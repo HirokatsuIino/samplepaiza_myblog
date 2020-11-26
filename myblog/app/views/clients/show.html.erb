@@ -1,34 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Id:</strong>
-  <%= @client.id %>
-</p>
+<%= render 'basic_info', client: @client %>
+<%= render 'publishing_setting', publishing_setting: @publishing_setting %>
 
-<p>
-  <strong>Client:</strong>
-  <%= @client.client_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @client.name %>
-</p>
-
-<p>
-  <strong>Admin comment:</strong>
-  <%= @client.admin_comment %>
-</p>
-
-<p>
-  <strong>Area important:</strong>
-  <%= @client.area_important %>
-</p>
-
-<p>
-  <strong>Nav:</strong>
-  <%= @client.nav_id %>
-</p>
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%#= render 'publishing_term', publishing_term: @publishing_term %>

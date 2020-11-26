@@ -4,8 +4,14 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
-    # @clients = ClientPublishingSetting.all
+    # @clients = Client.all
+    # @clients = ClientPublishingSetting.order(:client_id).all
+
+    # @clientPublishingSettings = ClientPublishingSetting.order(:client_id).all
+    @clients = PublishingTerm.all
+    # @clients = PublishingTerm.order(:client_id).all
+
+
   end
 
   # GET /clients/1
@@ -66,6 +72,13 @@ class ClientsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
+
+      @client_publish_setting = ClientPublishingSetting.find(params[:id])
+      # @client_publish_setting = ClientPublishingSetting.find(params[:id])
+
+
+      # @publishing_term = PublishingTerm.all
+      # @publishing_term = PublishingTerm.where(ids: client_publish.id)
     end
 
     # Only allow a list of trusted parameters through.

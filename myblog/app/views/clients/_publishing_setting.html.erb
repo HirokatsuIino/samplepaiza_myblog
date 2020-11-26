@@ -1,0 +1,18 @@
+<p>publishing_term</p>
+
+
+<div>掲載設定</div>
+<!--<p>-->
+<!--  <strong>Name:</strong>-->
+  <%#= @publishing_term %>
+<!--</p>-->
+
+<p>
+  <strong>Id:</strong>
+  <% if @publishing_setting.blank? %>
+
+  <% else %>
+    <%= @publishing_setting.comment %>
+  <% end %>
+</p>
+
