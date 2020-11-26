@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_111755) do
+ActiveRecord::Schema.define(version: 2020_11_26_054127) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -52,6 +52,19 @@ ActiveRecord::Schema.define(version: 2020_11_18_111755) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "contact_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "document_request_id"
+    t.string "name"
+    t.string "name_hira"
+    t.string "email"
+    t.string "tel"
+    t.datetime "supported_at"
+    t.string "comment"
+    t.boolean "support_required_flg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "diaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -84,10 +97,31 @@ ActiveRecord::Schema.define(version: 2020_11_18_111755) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "publishing_terms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "client_publishing_setting_id"
+    t.datetime "begin_at"
+    t.datetime "end_at"
+    t.boolean "flg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "category_id"
     t.string "name"
     t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "unit_prices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "relation_type_id"
+    t.integer "value"
+    t.string "billing_code"
+    t.string "refund_code"
+    t.string "billing_invoice_name"
+    t.string "refund_invoice_name"
+    t.boolean "campagin_flg"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client publishing setting:</strong>
+  <%= @publishing_term.client_publishing_setting_id %>
+</p>
+
+<p>
+  <strong>Begin at:</strong>
+  <%= @publishing_term.begin_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @publishing_term.end_at %>
+</p>
+
+<p>
+  <strong>Flg:</strong>
+  <%= @publishing_term.flg %>
+</p>
+
+<%= link_to 'Edit', edit_publishing_term_path(@publishing_term) %> |
+<%= link_to 'Back', publishing_terms_path %>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :publishing_terms
+  resources :unit_prices
+  resources :contact_histories
+  resources :notification2s
+  resources :notifications
   resources :publishing_fees
   resources :client_unit_prices
   resources :client_publishing_settings
@@ -11,13 +16,13 @@ Rails.application.routes.draw do
   resources :clients
 
 
-  namespace :api, {format: 'json'} do
-    namespace :v1 do
-      resources :articles, only: [:index, :show, :create]
-      resources :clients, only: [:index, :show, :create]
-      resources :product, only: [:index, :show]
-    end
-  end
+  # namespace :api, {format: 'json'} do
+  #   namespace :v1 do
+  #     resources :articles, only: [:index, :show, :create]
+  #     resources :clients, only: [:index, :show, :create]
+  #     resources :product, only: [:index, :show]
+  #   end
+  # end
 
   root "welcome#index"
 
