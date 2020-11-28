@@ -9,7 +9,7 @@ csv.each do |line|
 
   PublishingPriorityTerm.seed_once(:id) do |s|
     # s.id = id
-    s.client_publishing_tersms_id = client_publishing_tersms_id
+    s.client_publishing_setting_id = client_publishing_tersms_id
     s.publishing_priority_id = publishing_priority_id
     s.begin_at = begin_at
   end

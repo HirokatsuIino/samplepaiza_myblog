@@ -5,7 +5,7 @@ csv.each do |line|
   id = line[0]
   client_id = line[1]
   name = line[2]
-  cl_defied_code = line[3]
+  cl_defied_ofice_code = line[3]
   comment = line[4]
   unpublishing_at = line[5]
 
@@ -14,7 +14,7 @@ csv.each do |line|
     # s.id = id
     s.client_id = client_id
     s.name = name
-    s.cl_defied_code = cl_defied_code
+    s.cl_defied_ofice_code = cl_defied_ofice_code
     s.comment = comment
     s.unpublishing_at = unpublishing_at
   end

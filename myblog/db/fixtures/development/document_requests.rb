@@ -10,16 +10,16 @@ csv.each do |line|
   post_code = line[5]
   prefectures_id = line[6]
   municipality_id = line[7]
-  remaining_address = line[8]
+  etc_address = line[8]
   person_eat_id = line[9]
   tel_other = line[10]
   scd_site_code = line[11]
-  access_at = line[13]
-  devise = line[14]
-  scd_site_lp = line[15]
-  form = line[16]
-  admin_comment = line[17]
-  area_code_id = line[18]
+  access_at = line[12]
+  devise = line[13]
+  scd_site_lp = line[14]
+  form = line[15]
+  admin_comment = line[16]
+  area_code_id = line[17]
 
 
   DocumentRequest.seed_once(:id) do |s|
@@ -31,7 +31,7 @@ csv.each do |line|
     s.post_code = post_code
     s.prefectures_id = prefectures_id
     s.municipality_id = municipality_id
-    s.remaining_address = remaining_address
+    s.etc_address = etc_address
     s.person_eat_id = person_eat_id
     s.tel_other = tel_other
     s.scd_site_code = scd_site_code
@@ -47,5 +47,5 @@ end
 # コマンド
 # rails db:seed_fu FILTER=document_requests
 #
-# id, name, name_hira, tel, email, post_code, prefectures_id, municipality_id, remaining_address, person_eat_id, order_plan_category_id, tel_other, scd_site_code, access_at, devise, scd_site_lp, form, admin_comment, area_code_id
+# id, name, name_hira, tel, email, post_code, prefectures_id, municipality_id, etc_address, person_eat_id, order_plan_category_id, tel_other, scd_site_code, access_at, devise, scd_site_lp, form, admin_comment, area_code_id
 #

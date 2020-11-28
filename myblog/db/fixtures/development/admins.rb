@@ -9,6 +9,7 @@ csv.each do |line|
   first_name = line[4]
   last_name_kana = line[5]
   first_name_kana = line[6]
+  block_flg = line[7]
 
   Admin.seed_once(:id) do |s|
     # s.id = id
@@ -18,11 +19,12 @@ csv.each do |line|
     s.first_name = first_name
     s.last_name_kana = last_name_kana
     s.first_name_kana = first_name_kana
+    s.block_flg = block_flg
   end
 end
 
 # コマンド
 # rails db:seed_fu FILTER=admins
 #
-# id, email, password, last_name, first_name, last_name_kana, first_name_kana
+# id, email, password, last_name, first_name, last_name_kana, first_name_kana, block_flg
 #

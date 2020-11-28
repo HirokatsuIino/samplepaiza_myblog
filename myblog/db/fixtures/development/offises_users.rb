@@ -5,15 +5,17 @@ csv.each do |line|
   id = line[0]
   office_id = line[1]
   user_id = line[2]
+  block_flg = line[3]
 
 
   OffisesUser.seed_once(:id) do |s|
     # s.id = id
     s.office_id = office_id
     s.user_id = user_id
+    s.block_flg = block_flg
   end
 end
 
 # コマンド
 # rails db:seed_fu FILTER=offises_users
-# id, office_id, user_id
+# id, office_id, user_id, block_flg

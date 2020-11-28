@@ -27,3 +27,4 @@ end
 
 # コマンド
 # rails db:seed_fu FILTER=unit_prices
+# id, value, billing_code, refund_code, billing_invoice_name, refund_invoice_name, campagin_flg
