@@ -95,3 +95,52 @@ docker-compose run web bin/rails db:seed_fu FILTER=contact_histories
 -- ######################################
 
 
+
+
+-- // 郵便番号と都道府県は、リレーションを張った方が良いのではないか？
+-- エリアコード
+-- テーブル名：area_codes
+-- カラム：id, prefecture_id, municipality_id, town_name_id, character_name_id, town_name_code, new_town_name_code, postal_code_count, government_designated_city_flg, foreign_words_in_prefecture_flg, foreign_words_in_municipality_flg, foreign_words_in_large_village_section_flg, foreign_words_in_village_section_flg, registered_at, abolished_at, name_changed_at, postal_code_changed_at, house_display_implementation_at, house_display_implementation_flg, common_name_flg, street_name_flg, large_village_section_flg_1, large_village_section_flg_2, old_postal_code, fixed_code
+rails generate scaffold area_code prefecture_id:integer municipality_id:integer town_name_id:integer character_name_id:integer town_name_code:string new_town_name_code:string postal_code_count:integer government_designated_city_flg:boolean foreign_words_in_prefecture_flg:boolean foreign_words_in_municipality_flg:boolean foreign_words_in_large_village_section_flg:boolean foreign_words_in_village_section_flg:boolean registered_at:datetime abolished_at:datetime name_changed_at:datetime postal_code_changed_at:datetime house_display_implementation_at:datetime house_display_implementation_flg:boolean common_name_flg:boolean street_name_flg:boolean large_village_section_flg_1:boolean large_village_section_flg_2:boolean old_postal_code:string fixed_code:string
+docker-compose run web bin/rails g model area_code prefecture_id:integer municipality_id:integer town_name_id:integer character_name_id:integer town_name_code:string new_town_name_code:string postal_code_count:integer government_designated_city_flg:boolean foreign_words_in_prefecture_flg:boolean foreign_words_in_municipality_flg:boolean foreign_words_in_large_village_section_flg:boolean foreign_words_in_village_section_flg:boolean registered_at:datetime abolished_at:datetime name_changed_at:datetime postal_code_changed_at:datetime house_display_implementation_at:datetime house_display_implementation_flg:boolean common_name_flg:boolean street_name_flg:boolean large_village_section_flg_1:boolean large_village_section_flg_2:boolean old_postal_code:string fixed_code:string
+
+
+-- 都道府県
+-- テーブル名：prefectures
+-- カラム：id, prefecture_code, name, name_kana
+-- カラム：id, name, name_kana
+docker-compose run web bin/rails g model prefecture name:string name_kana:string
+
+
+-- 市区群町村
+-- テーブル名：municipalities
+-- カラム：id, prefecture_id, municipalitie_code, name, name_kana
+-- カラム：id, prefecture_id, name, name_kana
+docker-compose run web bin/rails g model  municipalitie prefecture_id:integer name:string name_kana:string
+
+
+-- 大字・町名
+-- テーブル名：town_names
+-- カラム：id, municipality_id, town_name, town_name_kana
+-- カラム：id, municipality_id, town_name, town_name_kana, document_requests_id, document_requests_prefectures_id, document_requests_municipality_id, document_requests_person_eat_id, document_requests_order_plan_category_id, document_requests_area_code_id, document_requests_remaining_address, document_requests_id1, document_requests_prefectures_id1, document_requests_municipality_id1, document_requests_person_eat_id1, document_requests_order_plan_category_id1, document_requests_area_code_id1, document_requests_town_names_id, document_requests_id2, document_requests_prefectures_id2, document_requests_municipality_id2, document_requests_person_eat_id2, document_requests_order_plan_category_id2, document_requests_area_code_id2, document_requests_town_names_id1
+-- docker-compose run web bin/rails g model  town_name municipality_id:integer town_name:string town_name_kana:string
+docker-compose run web bin/rails g model  town_name municipality_id:integer town_name:string town_name_kana:string document_requests_id:integer document_requests_prefectures_id:integer document_requests_municipality_id:integer document_requests_person_eat_id:integer document_requests_order_plan_category_id:integer document_requests_area_code_id:integer document_requests_remaining_address:string document_requests_id1:integer document_requests_prefectures_id1:integer document_requests_municipality_id1:integer document_requests_person_eat_id1:integer document_requests_order_plan_category_id1:integer document_requests_area_code_id1:integer document_requests_town_names_id:string document_requests_id2:integer document_requests_prefectures_id2:integer document_requests_municipality_id2:integer document_requests_person_eat_id2:integer document_requests_order_plan_category_id2:integer document_requests_area_code_id2:integer document_requests_town_names_id1:integer
+
+
+-- 字名・丁目
+-- テーブル名：character_names
+-- カラム：id, character_name_id, character_name, character_name_kana
+docker-compose run web bin/rails g model  character_name character_name_id:integer character_name:string character_name_kana:string
+
+
+-- エリアコード_郵便番号
+-- テーブル名：area_codes_post_codes
+-- カラム：id, area_code_id, post_code_id
+docker-compose run web bin/rails g model  area_codes_post_code area_code_id:integer post_code_id:integer
+
+
+-- 郵便番号
+-- テーブル名：post_codes
+-- カラム：id, post_code
+docker-compose run web bin/rails g model  post_code post_code:string
+
